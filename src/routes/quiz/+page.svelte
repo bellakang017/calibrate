@@ -1,6 +1,7 @@
 <script>
   import { goto } from '$app/navigation';
   import { base } from '$app/paths';
+  import { fade } from 'svelte/transition';
   import { quizAnswers, matchedPersona, currentScreen } from '$lib/stores/intervention.js';
   import { quizQuestions, matchPersona } from '$lib/data/personas.js';
 
@@ -35,25 +36,23 @@
     <p class="quiz-intro">Three questions about how you think.</p>
   </div>
 
-  {#each quizQuestions as q, i}
-    {#if i === currentQ}
-      <div class="quiz-question">
-        <p class="q-dimension">{q.dimension}</p>
-        <p class="q-text">{q.text}</p>
-        <div class="q-options">
-          {#each q.options as opt}
-            <button
-              class="q-option"
-              class:selected={answers[q.id] === opt.value}
-              onclick={() => selectAnswer(q.id, opt.value)}
-            >
-              {opt.label}
-            </button>
-          {/each}
-        </div>
+  {#key currentQ}
+    <div class="quiz-question" in:fade={{ duration: 200, delay: 150 }} out:fade={{ duration: 150 }}>
+      <p class="q-dimension">{quizQuestions[currentQ].dimension}</p>
+      <p class="q-text">{quizQuestions[currentQ].text}</p>
+      <div class="q-options">
+        {#each quizQuestions[currentQ].options as opt}
+          <button
+            class="q-option"
+            class:selected={answers[quizQuestions[currentQ].id] === opt.value}
+            onclick={() => selectAnswer(quizQuestions[currentQ].id, opt.value)}
+          >
+            {opt.label}
+          </button>
+        {/each}
       </div>
-    {/if}
-  {/each}
+    </div>
+  {/key}
 
   <div class="quiz-progress">
     {#each quizQuestions as _, i}
@@ -68,7 +67,7 @@
   </div>
 
   {#if allAnswered}
-    <div class="quiz-submit">
+    <div class="quiz-submit" in:fade={{ duration: 300 }}>
       <button class="btn-primary" onclick={submit}>See your match</button>
     </div>
   {/if}

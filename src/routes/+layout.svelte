@@ -11,7 +11,11 @@
 <div class="app">
   <nav class="top-nav">
     <span class="logo">Calibrate</span>
-    <span class="screen-indicator">{$currentScreen} of 5</span>
+    {#if $currentScreen > 1}
+      <span class="screen-indicator">{$currentScreen} of 5</span>
+    {:else}
+      <span></span>
+    {/if}
     <ThemeToggle />
   </nav>
 

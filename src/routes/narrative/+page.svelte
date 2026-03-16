@@ -17,7 +17,17 @@
   let paragraphEls = [];
 
   onMount(async () => {
-    if (!narrative) return;
+    if (!persona) {
+      goto(`${base}/quiz`, { replaceState: true });
+      return;
+    }
+
+    const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    if (prefersReduced) {
+      paragraphEls.forEach(el => { if (el) el.style.opacity = '1'; });
+      return;
+    }
 
     const { gsap } = await import('gsap');
     const { ScrollTrigger } = await import('gsap/ScrollTrigger');

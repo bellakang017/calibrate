@@ -1,4 +1,7 @@
 <script>
+  import { onMount } from 'svelte';
+  import { goto } from '$app/navigation';
+  import { base } from '$app/paths';
   import { responses, metrics, matchedPersona, currentScreen } from '$lib/stores/intervention.js';
   import Asterism from '$lib/components/Asterism.svelte';
   import { get } from 'svelte/store';
@@ -6,6 +9,10 @@
   currentScreen.set(5);
 
   const persona = get(matchedPersona);
+
+  onMount(() => {
+    if (!persona) goto(`${base}/quiz`, { replaceState: true });
+  });
   let reflection = $state('');
   let submitted = $state(false);
 

@@ -1,13 +1,18 @@
 <script>
+  import { onMount } from 'svelte';
   import { goto } from '$app/navigation';
   import { base } from '$app/paths';
-  import { condition, responses, currentScreen } from '$lib/stores/intervention.js';
+  import { condition, responses, matchedPersona, currentScreen } from '$lib/stores/intervention.js';
   import { strategicQuestions, controlTips } from '$lib/data/questions.js';
   import { aiTasks } from '$lib/data/ai-tasks.js';
   import QuestionBlock from '$lib/components/QuestionBlock.svelte';
   import { get } from 'svelte/store';
 
   currentScreen.set(4);
+
+  onMount(() => {
+    if (!get(matchedPersona)) goto(`${base}/quiz`, { replaceState: true });
+  });
 
   const cond = get(condition);
   const showStrategicQuestions = cond === 'full' || cond === 'strategy-only';
