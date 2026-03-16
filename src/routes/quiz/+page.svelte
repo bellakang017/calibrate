@@ -1,5 +1,6 @@
 <script>
   import { goto } from '$app/navigation';
+  import { base } from '$app/paths';
   import { quizAnswers, matchedPersona, currentScreen } from '$lib/stores/intervention.js';
   import { quizQuestions, matchPersona } from '$lib/data/personas.js';
 
@@ -21,7 +22,7 @@
     quizAnswers.set(answers);
     const persona = matchPersona(answers);
     matchedPersona.set(persona);
-    goto('/narrative');
+    goto(`${base}/narrative`);
   }
 
   let allAnswered = $derived(

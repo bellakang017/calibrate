@@ -1,6 +1,7 @@
 <script>
   import { onMount } from 'svelte';
   import { goto } from '$app/navigation';
+  import { base } from '$app/paths';
   import { matchedPersona, responses, currentScreen } from '$lib/stores/intervention.js';
   import { narratives } from '$lib/data/narratives.js';
   import Asterism from '$lib/components/Asterism.svelte';
@@ -43,7 +44,7 @@
 
   function handleContinue() {
     responses.update(r => ({ ...r, selfMapping }));
-    goto('/task');
+    goto(`${base}/task`);
   }
 </script>
 
@@ -78,10 +79,10 @@
       current={3}
       total={5}
       onContinue={handleContinue}
-      onBack={() => goto('/quiz')}
+      onBack={() => goto(`${base}/quiz`)}
     />
   {:else}
-    <p>No persona matched. <a href="/quiz">Retake the quiz</a>.</p>
+    <p>No persona matched. <a href="{base}/quiz">Retake the quiz</a>.</p>
   {/if}
 </div>
 

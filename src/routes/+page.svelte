@@ -1,5 +1,6 @@
 <script>
   import { goto } from '$app/navigation';
+  import { base } from '$app/paths';
   import { currentScreen } from '$lib/stores/intervention.js';
 
   currentScreen.set(1);
@@ -14,7 +15,7 @@
       the way you think with AI.
     </p>
     <p class="landing-time">About 15 minutes</p>
-    <button class="btn-primary" onclick={() => goto('/quiz')}>Begin</button>
+    <button class="btn-primary" onclick={() => goto(`${base}/quiz`)}>Begin</button>
   </div>
 </div>
 

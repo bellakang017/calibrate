@@ -1,5 +1,6 @@
 <script>
   import { goto } from '$app/navigation';
+  import { base } from '$app/paths';
   import { condition, responses, currentScreen } from '$lib/stores/intervention.js';
   import { strategicQuestions, controlTips } from '$lib/data/questions.js';
   import { aiTasks } from '$lib/data/ai-tasks.js';
@@ -48,7 +49,7 @@
       currentTask++;
     } else {
       responses.update(r => ({ ...r, aiTaskResults: results }));
-      goto('/reflection');
+      goto(`${base}/reflection`);
     }
   }
 </script>
