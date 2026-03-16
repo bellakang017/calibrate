@@ -26,11 +26,21 @@
     border: none;
     cursor: pointer;
     letter-spacing: 0.5px;
-    padding: 4px 0;
+    padding: 12px 8px;
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
     border-bottom: 1px solid transparent;
     transition: border-color 0.2s;
   }
   .theme-toggle:hover {
     border-color: var(--text-muted);
+  }
+  .theme-toggle:active {
+    opacity: 0.7;
+  }
+  .theme-toggle:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
   }
 </style>

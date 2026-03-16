@@ -40,7 +40,11 @@
     height: 2px;
     background: var(--border);
     transition: all 0.3s ease;
+    border-radius: 1px;
   }
   .pip.done { background: var(--accent); }
   .pip.current { background: var(--accent); width: 40px; }
+  @media (pointer: coarse) {
+    .pips { gap: 8px; }
+  }
 </style>

@@ -119,6 +119,13 @@
     border-color: var(--accent);
     color: var(--text);
   }
+  .q-option:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+  }
+  .q-option:active {
+    opacity: 0.8;
+  }
   .q-option.selected {
     border-color: var(--accent);
     color: var(--text);
@@ -132,15 +139,32 @@
   }
   .quiz-pip {
     width: 32px;
-    height: 3px;
-    background: var(--border);
+    height: 44px;
+    background: transparent;
     cursor: pointer;
     transition: all 0.2s;
     border: none;
-    padding: 0;
+    padding: 20px 0;
+    position: relative;
   }
-  .quiz-pip.done { background: var(--accent); }
-  .quiz-pip.current { background: var(--accent); width: 48px; }
+  .quiz-pip::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 50%;
+    height: 3px;
+    transform: translateY(-50%);
+    background: var(--border);
+    transition: background 0.2s, width 0.2s;
+  }
+  .quiz-pip.done::after { background: var(--accent); }
+  .quiz-pip.current { width: 48px; }
+  .quiz-pip.current::after { background: var(--accent); }
+  .quiz-pip:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+  }
   .quiz-submit {
     text-align: center;
     margin-top: 32px;

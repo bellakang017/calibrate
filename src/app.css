@@ -11,8 +11,8 @@
   --bg-shifted: #f0e8dc;
   --text: #1a1410;
   --text-secondary: #5a4a3a;
-  --text-muted: #a09080;
-  --accent: #c47040;
+  --text-muted: #736354;
+  --accent: #a85a30;
   --btn-bg: #1a1410;
   --btn-text: #f0e8dc;
   --border: #e0d8cc;
@@ -28,7 +28,7 @@
   --bg-shifted: #242018;
   --text: #d8d0c4;
   --text-secondary: #b0a898;
-  --text-muted: #6a6050;
+  --text-muted: #968678;
   --accent: #a08060;
   --btn-bg: #d8d0c4;
   --btn-text: #1c1a16;
@@ -72,6 +72,11 @@ body {
 }
 
 .btn-primary:hover { opacity: 0.85; }
+.btn-primary:active { opacity: 0.7; }
+.btn-primary:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
 
 .btn-primary:disabled {
   opacity: 0.4;
@@ -85,12 +90,18 @@ body {
   background: none;
   border: none;
   cursor: pointer;
-  padding-bottom: 1px;
+  padding: 12px 4px 13px;
+  min-height: 44px;
   border-bottom: 1px solid var(--border);
   transition: border-color 0.2s;
 }
 
 .link-back:hover { border-color: var(--text-secondary); }
+.link-back:active { opacity: 0.7; }
+.link-back:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
 
 /* Asterism */
 .asterism {
@@ -116,6 +127,15 @@ textarea.minimal {
   outline: none;
   resize: none;
   line-height: 1.8;
+}
+
+textarea.minimal:focus {
+  border-bottom-color: var(--accent);
+}
+
+textarea.minimal:focus-visible {
+  outline: none;
+  border-bottom-color: var(--accent);
 }
 
 textarea.minimal::placeholder {
