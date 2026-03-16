@@ -25,13 +25,22 @@
 <style>
   .app {
     min-height: 100dvh;
+    display: flex;
+    flex-direction: column;
+  }
+  main {
+    flex: 1;
+    position: relative;
   }
   .top-nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 16px 40px;
+    padding: 16px 24px;
     border-bottom: 1px solid var(--border);
+  }
+  @media (min-width: 768px) {
+    .top-nav { padding: 16px 40px; }
   }
   .logo {
     font-family: var(--font-display);

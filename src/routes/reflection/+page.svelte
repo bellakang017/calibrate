@@ -13,8 +13,6 @@
     responses.update(r => ({ ...r, reflection }));
     submitted = true;
   }
-
-  const m = $derived(get(metrics));
 </script>
 
 <div class="screen">
@@ -55,10 +53,10 @@
         it's a practice you can refine, just as {persona?.thinker} refined theirs.
       </p>
 
-      {#if m}
+      {#if $metrics}
         <div class="results-summary">
           <p class="results-label">Your calibration</p>
-          <p class="results-stat">{m.calibrationAccuracy} of 3 incorrect AI answers identified</p>
+          <p class="results-stat">{$metrics.calibrationAccuracy} of 3 incorrect AI answers identified</p>
         </div>
       {/if}
     </div>

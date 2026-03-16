@@ -10,8 +10,8 @@
   <div class="landing-content">
     <h1 class="landing-title">Strategic Minds,<br>Chosen Orbits</h1>
     <p class="landing-subtitle">
-      Every thinker navigated uncertainty in their own way.<br>
-      Discover whose orbit mirrors your own — and how it shapes<br>
+      Every thinker navigated uncertainty in their own way.
+      Discover whose orbit mirrors your own — and how it shapes
       the way you think with AI.
     </p>
     <p class="landing-time">About 15 minutes</p>
@@ -28,7 +28,7 @@
   }
   .landing-title {
     font-family: var(--font-display);
-    font-size: 42px;
+    font-size: 32px;
     font-weight: 600;
     line-height: 1.2;
     margin-bottom: 20px;
@@ -36,11 +36,18 @@
   }
   .landing-subtitle {
     font-family: var(--font-body);
-    font-size: 17px;
+    font-size: 16px;
     font-weight: 300;
     line-height: 1.7;
     color: var(--text-secondary);
     margin-bottom: 32px;
+    max-width: 420px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  @media (min-width: 768px) {
+    .landing-title { font-size: 42px; }
+    .landing-subtitle { font-size: 17px; max-width: none; }
   }
   .landing-time {
     font-family: var(--font-ui);
