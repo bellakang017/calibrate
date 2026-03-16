@@ -1,0 +1,132 @@
+@import url('https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,300;1,6..72,400&family=Lora:ital,wght@0,400;0,600;1,400&family=Source+Sans+3:ital,wght@0,300;0,400;0,600;1,400&display=swap');
+
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --bg: #faf5ee;
+  --bg-shifted: #f0e8dc;
+  --text: #1a1410;
+  --text-secondary: #5a4a3a;
+  --text-muted: #a09080;
+  --accent: #c47040;
+  --btn-bg: #1a1410;
+  --btn-text: #f0e8dc;
+  --border: #e0d8cc;
+
+  --font-display: 'Newsreader', serif;
+  --font-body: 'Newsreader', serif;
+  --font-question: 'Lora', serif;
+  --font-ui: 'Source Sans 3', sans-serif;
+}
+
+[data-theme="dark"] {
+  --bg: #1c1a16;
+  --bg-shifted: #242018;
+  --text: #d8d0c4;
+  --text-secondary: #b0a898;
+  --text-muted: #6a6050;
+  --accent: #a08060;
+  --btn-bg: #d8d0c4;
+  --btn-text: #1c1a16;
+  --border: #2a2620;
+}
+
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-ui);
+  line-height: 1.6;
+  min-height: 100dvh;
+  transition: background 0.4s ease, color 0.4s ease;
+}
+
+/* Typography */
+.display { font-family: var(--font-display); font-weight: 600; }
+.narrative { font-family: var(--font-body); font-weight: 300; font-size: 18px; line-height: 1.9; }
+.question { font-family: var(--font-question); font-style: italic; font-weight: 400; }
+.ui { font-family: var(--font-ui); }
+
+/* Buttons — Anti-AI */
+.btn-primary {
+  display: inline-block;
+  background: var(--btn-bg);
+  color: var(--btn-text);
+  padding: 13px 32px;
+  border-radius: 3px;
+  font-family: var(--font-ui);
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  border: none;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.btn-primary:hover { opacity: 0.85; }
+
+.btn-primary:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.link-back {
+  color: var(--text-muted);
+  font-family: var(--font-ui);
+  font-size: 14px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding-bottom: 1px;
+  border-bottom: 1px solid var(--border);
+  transition: border-color 0.2s;
+}
+
+.link-back:hover { border-color: var(--text-secondary); }
+
+/* Asterism */
+.asterism {
+  text-align: center;
+  margin: 40px 0 28px;
+  font-family: var(--font-display);
+  font-size: 18px;
+  color: var(--accent);
+  letter-spacing: 12px;
+  user-select: none;
+}
+
+/* Textarea — bottom border only */
+textarea.minimal {
+  width: 100%;
+  padding: 16px 0;
+  border: none;
+  border-bottom: 1px solid var(--border);
+  font-family: var(--font-body);
+  font-size: 16px;
+  color: var(--text);
+  background: transparent;
+  outline: none;
+  resize: none;
+  line-height: 1.8;
+}
+
+textarea.minimal::placeholder {
+  color: var(--text-muted);
+  font-style: italic;
+}
+
+/* Layout */
+.screen {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 48px 24px;
+  min-height: 100dvh;
+}
